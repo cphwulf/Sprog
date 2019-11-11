@@ -3,17 +3,17 @@ import java.util.Scanner;
 public class Sprog {
 	
 	public static Scanner input = new Scanner(System.in);
-	static Dansk sprogDK = new Dansk();
-	static Engelsk sprogUK = new Engelsk();
+	public static SprogI sprog = new Dansk();
+	
 	public static void main(String[] args) {
 		
 		
 		//sprogDK = new Dansk();
 		//sprogUK = new Engelsk();
 		int choice = 0;
-		sprogDK.printMenu();
 		
 		while(choice != 9) {
+			sprog.printMenu();
 			choice = input.nextInt();
 			switch(choice) {
 				case 1:
@@ -36,8 +36,11 @@ public class Sprog {
 		// TODO: sproguafh skiftsprog menu
 		int choice = input.nextInt();
 		switch (choice){
-			case 1: sprogDK.printMenu();break;
-			case 2: sprogUK.printMenu();break;
+			//case 1: sprogDK.printMenu();break;
+			case 1: sprog = new Dansk();break;
+			//case 2: sprogUK.printMenu();break;
+			case 2: sprog = new Engelsk();break;
 		}
+		System.out.println("sprog skiftet");
 	}
 }
